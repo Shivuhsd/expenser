@@ -1,0 +1,25 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+      <div class="my-4">
+        <h4>Feedback </h4>
+      </div>
+    
+      <div>
+        <div class="card">
+            <div class="card-header">
+              {{info.userid.username}} <br>
+              {{info.userid.email}}<br>
+              {{info.userid.id}}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Date Time: {{info.created}}</h5>
+              <p class="card-text"><b>Message: </b><br> {{info.message}}</p>
+              <a href="#" class="btn btn-primary">Reply</a>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+{% endblock %}

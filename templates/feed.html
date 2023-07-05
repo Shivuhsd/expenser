@@ -1,0 +1,30 @@
+{% extends 'home.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+      <div class="my-4">
+        <h4>Feedback </h4>
+      </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">User</th>
+                <th scope="col">Date</th>
+                <th scope="col">View</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for i in info %}
+              <tr>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.userid.username}}</td>
+                <td>{{i.created.date}}</td>
+                <td><a href="#"><button class="btn btn-dark">View</button></a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+    
+{% endblock %}

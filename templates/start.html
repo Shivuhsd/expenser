@@ -1,0 +1,61 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <div class="my-5 mx-2">
+
+        <div class="row gx-2">
+
+            <div class="col">
+
+            </div>
+            <div class="col-md-5 bg-white p-sm-5 p-3 shadow">
+                <div class="text-center m-4" >
+                    <h4>Expenser</h4>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+                        <label for="floatingInput">Email address</label>
+                      </div>
+                    <button class="btn btn-dark" id="pre_loading" onclick=loading()>Submit</button>
+                    <button class="btn btn-dark" type="button" disabled style="display: none;" id="post_loading">
+                        <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                        Sending Mail....
+                      </button>
+                </form>
+
+                <div class="my-4">
+                     <p>Already Have an Account <a href="{% url 'userlogin' %}">Login</a></p>
+                </div>
+
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                <div class="mt-5">
+                    <p>Developed By: mps11</p>
+                </div>
+            </div>
+            <div class="col">
+
+            </div>
+
+        </div>
+
+       
+    </div>
+
+
+    <script>
+        function loading(){
+            document.getElementById('pre_loading').style.display = "none";
+            document.getElementById('post_loading').style.display = "block";
+        }
+    </script>
+{% endblock %}

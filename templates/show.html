@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+
+{% block content %}
+
+    <div>
+        <div class="m-3 mt-5">
+            <div class="container bg-white shadow p-4">
+                <div class="container">
+                    <p>Name : {{request.user}}</p>
+                    <p>E-Mail: {{request.user.email}}</p>
+                </div>
+                <hr>
+                <div class="container">
+                    <p>Date: {{info.time_stamp.date}}</p>
+                    <p>Time: {{info.time_stamp.time}}</p>
+                    <h4>Amount: {{info.amount}}</h4>
+                </div>
+                <hr>
+                <div class="container">
+                    <p><b>Why: </b>{{info.desc}}</p>
+                </div>
+                <hr>
+                <div>
+                    <a href="{% url 'home' %}"><button class="btn btn-dark">Back</button></a>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
